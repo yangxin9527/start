@@ -1,0 +1,7 @@
+配合gulp 搭建自动化流程
+
+需要全局安装 http-server
+
+本地安装
+cnpm install --save-dev
+
