@@ -1,8 +1,29 @@
 @@include('include/header.html')
 @@include('include/crumb.html')
 
-<div>
-    内容test
+<div id="app">
+    <a href="./news.html">去新闻页</a>
+ss
 </div>
+<script>
+    // 在 #app 标签下渲染一个按钮组件
+    new Vue({
+        el: '#app',
+        template: `<div>
+<van-button type="primary">主要按钮</van-button>
+<van-button type="info">信息按钮</van-button>
+<van-button type="default">默认按钮</van-button>
+<van-button type="warning">警告按钮</van-button>
+<van-button type="danger">危险按钮</van-button>
 
+</div>`,
+    });
+
+    // 调用函数组件，弹出一个 Toast
+    vant.Toast('提示');
+
+    // 通过 CDN 引入时不会自动注册 Lazyload 组件
+    // 可以通过下面的方式手动注册
+    Vue.use(vant.Lazyload);
+</script>
 @@include('include/footer.html')

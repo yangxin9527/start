@@ -35,7 +35,7 @@ gulp.task('testHtmlmin', function () {
     gulp.src('src/views/**/*.html')
         .pipe(fileinclude())
         .pipe(htmlmin(options))
-        .pipe(gulp.dest('dist/html'));
+        .pipe(gulp.dest('dist'));
 });
 
 // css
@@ -47,7 +47,7 @@ gulp.task('styles', function() {
                 sourceMapRootpath: '../less' // Optional absolute or relative path to your LESS files
             }
         }))
-        // .pipe(minifycss()) //压缩  兼容IE7及以下需设置compatibility属性 .pipe(cssmin({compatibility: 'ie7'}))
+        .pipe(minifycss()) //压缩  兼容IE7及以下需设置compatibility属性 .pipe(cssmin({compatibility: 'ie7'}))
         .pipe(gulp.dest('dist/styles'));
 });
 
@@ -55,10 +55,10 @@ gulp.task('styles', function() {
 gulp.task('scripts', function() {
     return gulp.src('src/scripts/**/*.js')
         .pipe(jshint.reporter('default'))
-        .pipe(concat('main.js'))//压缩成一个main.js
+        // .pipe(concat('main.js'))//压缩成一个main.js
         .pipe(gulp.dest('dist/scripts'))
-        .pipe(rename({ suffix: '.min' }))
-        .pipe(uglify())
+        // .pipe(rename({ suffix: '.min' }))
+        // .pipe(uglify())
         .pipe(gulp.dest('dist/scripts'))
         .pipe(notify({ message: 'Scripts task complete' }));
 });
